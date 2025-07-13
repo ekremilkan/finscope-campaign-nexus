@@ -132,18 +132,22 @@ All colors MUST be HSL.
 @layer components {
   /* Glass morphism effects */
   .glass-card {
-    @apply backdrop-blur-md bg-black/30 border border-white/10 rounded-xl;
+    @apply backdrop-blur-md border rounded-xl;
     background: var(--gradient-glass);
+    border-color: var(--glass-border);
     box-shadow: var(--shadow-card);
   }
   
   .glass-button {
-    @apply backdrop-blur-sm bg-black/20 border border-primary/30 rounded-lg transition-all duration-300;
+    @apply backdrop-blur-sm border rounded-lg transition-all duration-300;
+    background: var(--gradient-glass);
+    border-color: hsl(var(--primary) / 0.3);
     box-shadow: var(--shadow-button);
   }
   
   .glass-button:hover {
-    @apply border-primary/60 bg-black/40;
+    border-color: hsl(var(--primary) / 0.6);
+    background: hsl(var(--black-light) / 0.6);
     box-shadow: var(--shadow-glow);
   }
   
