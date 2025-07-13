@@ -44,7 +44,6 @@ const NetworksSection = () => {
   return (
     <section id="networks" className="py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
             Supported <span className="text-primary glow-text">Networks</span>
@@ -55,7 +54,6 @@ const NetworksSection = () => {
           </p>
         </div>
 
-        {/* Networks Visual */}
         <div className="mb-16">
           <div className="glass-card p-8 rounded-2xl">
             <img 
@@ -66,12 +64,10 @@ const NetworksSection = () => {
           </div>
         </div>
 
-        {/* Networks Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {networks.map((network, index) => (
             <div key={index} className="group">
               <div className="glass-card p-6 hover:glow-border transition-all duration-300 cursor-pointer">
-                {/* Network Header */}
                 <div className="flex items-center justify-between mb-4">
                   <div>
                     <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
@@ -80,7 +76,6 @@ const NetworksSection = () => {
                     <span className="text-sm text-primary font-medium">{network.symbol}</span>
                   </div>
                   
-                  {/* Icon Placeholder */}
                   <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${network.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
                     <span className="text-white font-bold text-lg">
                       {network.symbol.charAt(0)}
@@ -88,12 +83,10 @@ const NetworksSection = () => {
                   </div>
                 </div>
                 
-                {/* Description */}
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   {network.description}
                 </p>
 
-                {/* Stats */}
                 <div className="mt-4 pt-4 border-t border-border">
                   <div className="flex justify-between text-sm">
                     <span className="text-muted-foreground">Active Users</span>
@@ -107,7 +100,6 @@ const NetworksSection = () => {
           ))}
         </div>
 
-        {/* Bottom CTA */}
         <div className="text-center mt-16">
           <div className="glass-card p-8 max-w-2xl mx-auto">
             <h3 className="text-2xl font-bold mb-4 text-primary">

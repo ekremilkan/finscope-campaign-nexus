@@ -54,7 +54,6 @@ const PricingSection = () => {
   return (
     <section id="pricing" className="py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
             <span className="text-primary glow-text">Pay Only</span> for Results
@@ -65,57 +64,54 @@ const PricingSection = () => {
           </p>
         </div>
 
-        {/* Pricing Cards */}
         <div className="grid md:grid-cols-3 gap-8 mb-16">
-          {tiers.map((tier, index) => (
-            <div key={index} className={`relative group ${tier.popular ? 'scale-105' : ''}`}>
-              {/* Popular Badge */}
-              {tier.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-                  <span className="bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-bold">
-                    Most Popular
-                  </span>
-                </div>
-              )}
-
-              <div className={`glass-card p-8 h-full hover:glow-border transition-all duration-300 ${tier.popular ? 'border-primary/50' : ''}`}>
-                {/* Header */}
-                <div className="text-center mb-8">
-                  <div className={`inline-flex items-center justify-center w-16 h-16 rounded-lg bg-gradient-to-br ${tier.color} mb-4`}>
-                    <tier.icon className="h-8 w-8 text-white" />
+          {tiers.map((tier, index) => {
+            const IconComponent = tier.icon;
+            return (
+              <div key={index} className={`relative group ${tier.popular ? 'scale-105' : ''}`}>
+                {tier.popular && (
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
+                    <span className="bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-bold">
+                      Most Popular
+                    </span>
                   </div>
-                  
-                  <h3 className="text-2xl font-bold mb-2 text-foreground">{tier.name}</h3>
-                  <p className="text-muted-foreground text-sm mb-4">{tier.description}</p>
-                  
-                  <div className="text-4xl font-bold text-primary mb-1">{tier.price}</div>
-                  <div className="text-sm text-muted-foreground">per successful engagement</div>
+                )}
+
+                <div className={`glass-card p-8 h-full hover:glow-border transition-all duration-300 ${tier.popular ? 'border-primary/50' : ''}`}>
+                  <div className="text-center mb-8">
+                    <div className={`inline-flex items-center justify-center w-16 h-16 rounded-lg bg-gradient-to-br ${tier.color} mb-4`}>
+                      <IconComponent className="h-8 w-8 text-white" />
+                    </div>
+                    
+                    <h3 className="text-2xl font-bold mb-2 text-foreground">{tier.name}</h3>
+                    <p className="text-muted-foreground text-sm mb-4">{tier.description}</p>
+                    
+                    <div className="text-4xl font-bold text-primary mb-1">{tier.price}</div>
+                    <div className="text-sm text-muted-foreground">per successful engagement</div>
+                  </div>
+
+                  <ul className="space-y-3 mb-8">
+                    {tier.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-center">
+                        <Check className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
+                        <span className="text-muted-foreground text-sm">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <Button 
+                    variant={tier.popular ? "hero" : "outline-glow"} 
+                    size="lg" 
+                    className="w-full"
+                  >
+                    Target {tier.name}
+                  </Button>
                 </div>
-
-                {/* Features */}
-                <ul className="space-y-3 mb-8">
-                  {tier.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center">
-                      <Check className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
-                      <span className="text-muted-foreground text-sm">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* CTA */}
-                <Button 
-                  variant={tier.popular ? "hero" : "outline-glow"} 
-                  size="lg" 
-                  className="w-full"
-                >
-                  Target {tier.name}
-                </Button>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
-        {/* Enterprise Section */}
         <div className="glass-card p-8 text-center">
           <h3 className="text-2xl font-bold mb-4 text-primary">Enterprise Solutions</h3>
           <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
@@ -143,7 +139,6 @@ const PricingSection = () => {
           </Button>
         </div>
 
-        {/* Bottom Info */}
         <div className="text-center mt-12">
           <p className="text-muted-foreground">
             <span className="text-primary font-medium">No setup fees</span> • 

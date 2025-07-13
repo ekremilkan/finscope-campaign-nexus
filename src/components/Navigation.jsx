@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Navigation = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = React.useState(false);
 
   const navItems = [
     { name: 'Home', href: '#home' },
@@ -17,14 +17,12 @@ const Navigation = () => {
     <nav className="fixed top-0 w-full z-50 glass-card border-b border-primary/20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
           <div className="flex-shrink-0">
             <span className="text-2xl font-bold text-primary glow-text">
               FinScope
             </span>
           </div>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
               {navItems.map((item) => (
@@ -39,14 +37,12 @@ const Navigation = () => {
             </div>
           </div>
 
-          {/* CTA Button */}
           <div className="hidden md:block">
             <Button variant="hero" size="lg">
               Start Campaign
             </Button>
           </div>
 
-          {/* Mobile menu button */}
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -57,7 +53,6 @@ const Navigation = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 glass-card mt-2 rounded-lg">

@@ -66,7 +66,6 @@ const FeaturesSection = () => {
   return (
     <section id="features" className="py-20 bg-black-light">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
             Key <span className="text-primary glow-text">Features</span>
@@ -77,30 +76,29 @@ const FeaturesSection = () => {
           </p>
         </div>
 
-        {/* Features Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-          {features.map((feature, index) => (
-            <div key={index} className="group">
-              <div className="glass-card p-8 h-full hover:glow-border transition-all duration-300">
-                {/* Icon */}
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-lg mb-6 group-hover:bg-primary/20 transition-colors duration-300">
-                  <feature.icon className="h-8 w-8 text-primary" />
+          {features.map((feature, index) => {
+            const IconComponent = feature.icon;
+            return (
+              <div key={index} className="group">
+                <div className="glass-card p-8 h-full hover:glow-border transition-all duration-300">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-lg mb-6 group-hover:bg-primary/20 transition-colors duration-300">
+                    <IconComponent className="h-8 w-8 text-primary" />
+                  </div>
+                  
+                  <h3 className="text-xl font-bold mb-4 text-foreground group-hover:text-primary transition-colors duration-300">
+                    {feature.title}
+                  </h3>
+                  
+                  <p className="text-muted-foreground leading-relaxed">
+                    {feature.description}
+                  </p>
                 </div>
-                
-                {/* Content */}
-                <h3 className="text-xl font-bold mb-4 text-foreground group-hover:text-primary transition-colors duration-300">
-                  {feature.title}
-                </h3>
-                
-                <p className="text-muted-foreground leading-relaxed">
-                  {feature.description}
-                </p>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
-        {/* Highlights Section */}
         <div className="glass-card p-8 rounded-2xl">
           <div className="text-center mb-12">
             <h3 className="text-2xl md:text-3xl font-bold mb-4">
@@ -112,15 +110,18 @@ const FeaturesSection = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {highlights.map((highlight, index) => (
-              <div key={index} className="text-center group">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-lg mb-4 group-hover:bg-primary/20 transition-colors duration-300">
-                  <highlight.icon className="h-8 w-8 text-primary" />
+            {highlights.map((highlight, index) => {
+              const IconComponent = highlight.icon;
+              return (
+                <div key={index} className="text-center group">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-lg mb-4 group-hover:bg-primary/20 transition-colors duration-300">
+                    <IconComponent className="h-8 w-8 text-primary" />
+                  </div>
+                  <div className="text-3xl font-bold text-primary mb-2">{highlight.stat}</div>
+                  <p className="text-muted-foreground">{highlight.description}</p>
                 </div>
-                <div className="text-3xl font-bold text-primary mb-2">{highlight.stat}</div>
-                <p className="text-muted-foreground">{highlight.description}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

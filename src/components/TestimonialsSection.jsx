@@ -64,7 +64,6 @@ const TestimonialsSection = () => {
   return (
     <section id="testimonials" className="py-20 bg-black-light">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Community Testimonials */}
         <div className="mb-20">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
@@ -78,18 +77,14 @@ const TestimonialsSection = () => {
           <div className="grid md:grid-cols-3 gap-8">
             {communityTestimonials.map((testimonial, index) => (
               <div key={index} className="glass-card p-6 hover:glow-border transition-all duration-300">
-                {/* Quote Icon */}
                 <Quote className="h-8 w-8 text-primary mb-4" />
                 
-                {/* Rating */}
                 <StarRating rating={testimonial.rating} />
                 
-                {/* Text */}
                 <p className="text-muted-foreground my-4 leading-relaxed">
                   "{testimonial.text}"
                 </p>
                 
-                {/* Author */}
                 <div className="flex items-center">
                   <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mr-4">
                     <span className="text-primary font-bold">{testimonial.avatar}</span>
@@ -104,7 +99,6 @@ const TestimonialsSection = () => {
           </div>
         </div>
 
-        {/* Customer Testimonials */}
         <div>
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
@@ -118,7 +112,6 @@ const TestimonialsSection = () => {
           <div className="grid md:grid-cols-3 gap-8">
             {customerTestimonials.map((testimonial, index) => (
               <div key={index} className="glass-card p-6 hover:glow-border transition-all duration-300">
-                {/* Company */}
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mr-4">
                     <span className="text-primary font-bold">{testimonial.logo}</span>
@@ -128,15 +121,12 @@ const TestimonialsSection = () => {
                   </div>
                 </div>
                 
-                {/* Quote */}
                 <Quote className="h-8 w-8 text-primary mb-4" />
                 
-                {/* Text */}
                 <p className="text-muted-foreground mb-4 leading-relaxed">
                   "{testimonial.text}"
                 </p>
                 
-                {/* Executive */}
                 <div className="pt-4 border-t border-border">
                   <div className="font-semibold text-foreground">{testimonial.executive}</div>
                   <div className="text-sm text-muted-foreground">{testimonial.role}</div>
@@ -146,7 +136,6 @@ const TestimonialsSection = () => {
           </div>
         </div>
 
-        {/* Stats */}
         <div className="mt-20 text-center">
           <div className="glass-card p-8 max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold mb-8 text-primary">Trusted by the Crypto Community</h3>

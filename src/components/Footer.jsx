@@ -44,9 +44,7 @@ const Footer = () => {
   return (
     <footer className="bg-black-deep pt-20 pb-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Main Footer Content */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-          {/* Brand Section */}
           <div className="lg:col-span-1">
             <div className="mb-6">
               <span className="text-2xl font-bold text-primary glow-text">FinScope</span>
@@ -56,22 +54,23 @@ const Footer = () => {
               that connects projects with their ideal users through data-driven insights.
             </p>
             
-            {/* Social Links */}
             <div className="flex space-x-4">
-              {socialLinks.map((social, index) => (
-                <a
-                  key={index}
-                  href={social.href}
-                  className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center hover:bg-primary/20 transition-colors duration-300 group"
-                  aria-label={social.label}
-                >
-                  <social.icon className="h-5 w-5 text-primary group-hover:scale-110 transition-transform duration-300" />
-                </a>
-              ))}
+              {socialLinks.map((social, index) => {
+                const IconComponent = social.icon;
+                return (
+                  <a
+                    key={index}
+                    href={social.href}
+                    className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center hover:bg-primary/20 transition-colors duration-300 group"
+                    aria-label={social.label}
+                  >
+                    <IconComponent className="h-5 w-5 text-primary group-hover:scale-110 transition-transform duration-300" />
+                  </a>
+                );
+              })}
             </div>
           </div>
 
-          {/* Quick Links */}
           <div>
             <h3 className="text-lg font-semibold text-foreground mb-4">Quick Links</h3>
             <ul className="space-y-3">
@@ -89,7 +88,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Resources */}
           <div>
             <h3 className="text-lg font-semibold text-foreground mb-4">Resources</h3>
             <ul className="space-y-3">
@@ -107,7 +105,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact & Networks */}
           <div>
             <h3 className="text-lg font-semibold text-foreground mb-4">Contact</h3>
             <div className="space-y-3 mb-6">
@@ -131,17 +128,13 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Divider */}
         <div className="border-t border-border mb-8"></div>
 
-        {/* Bottom Section */}
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-          {/* Copyright */}
           <div className="text-sm text-muted-foreground">
             © 2024 FinScope. All rights reserved. Built for the decentralized future.
           </div>
 
-          {/* Legal Links */}
           <div className="flex flex-wrap gap-6 text-sm">
             {legal.map((item, index) => (
               <a
@@ -155,7 +148,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Accent */}
         <div className="mt-8 text-center">
           <div className="inline-flex items-center space-x-2 text-xs text-primary">
             <span>●</span>
