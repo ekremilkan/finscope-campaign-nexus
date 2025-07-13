@@ -8,33 +8,58 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Finscope Yellow-Black Theme */
+    --background: 0 0% 3%;
+    --foreground: 48 100% 88%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 6%;
+    --card-foreground: 48 100% 88%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 48 100% 88%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 48 100% 67%;
+    --primary-foreground: 0 0% 0%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 48 100% 88%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 0 0% 8%;
+    --muted-foreground: 48 50% 60%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 48 100% 67%;
+    --accent-foreground: 0 0% 0%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 0 0% 15%;
+    --input: 0 0% 10%;
+    --ring: 48 100% 67%;
+
+    /* Custom Finscope Variables */
+    --primary-glow: 48 100% 75%;
+    --gold-light: 48 100% 85%;
+    --gold-dark: 48 100% 45%;
+    --black-deep: 0 0% 2%;
+    --black-light: 0 0% 8%;
+    --glass-bg: 0 0% 8% / 0.3;
+    --glass-border: 48 100% 67% / 0.2;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(48 100% 67%), hsl(48 100% 45%));
+    --gradient-dark: linear-gradient(135deg, hsl(0 0% 8%), hsl(0 0% 3%));
+    --gradient-glass: linear-gradient(135deg, hsl(0 0% 8% / 0.4), hsl(0 0% 12% / 0.2));
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 2%) 0%, hsl(0 0% 6%) 50%, hsl(48 100% 67% / 0.1) 100%);
+    
+    /* Shadows */
+    --shadow-glow: 0 0 40px hsl(48 100% 67% / 0.3);
+    --shadow-card: 0 10px 30px hsl(0 0% 0% / 0.5);
+    --shadow-button: 0 4px 20px hsl(48 100% 67% / 0.4);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-glow: all 0.4s ease;
 
     --radius: 0.5rem;
 
@@ -101,5 +126,76 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  /* Glass morphism effects */
+  .glass-card {
+    @apply backdrop-blur-md bg-black/30 border border-white/10 rounded-xl;
+    background: var(--gradient-glass);
+    box-shadow: var(--shadow-card);
+  }
+  
+  .glass-button {
+    @apply backdrop-blur-sm bg-black/20 border border-primary/30 rounded-lg transition-all duration-300;
+    box-shadow: var(--shadow-button);
+  }
+  
+  .glass-button:hover {
+    @apply border-primary/60 bg-black/40;
+    box-shadow: var(--shadow-glow);
+  }
+  
+  /* Hero gradients */
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+  
+  /* Glow effects */
+  .glow-text {
+    text-shadow: 0 0 20px hsl(var(--primary));
+  }
+  
+  .glow-border {
+    box-shadow: 0 0 0 1px hsl(var(--primary) / 0.3), var(--shadow-glow);
+  }
+  
+  /* Animated elements */
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite alternate;
+  }
+}
+
+@layer utilities {
+  /* Custom animations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+  
+  @keyframes pulse-glow {
+    0% { box-shadow: 0 0 20px hsl(var(--primary) / 0.4); }
+    100% { box-shadow: 0 0 40px hsl(var(--primary) / 0.8); }
+  }
+  
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes counter {
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
 }
